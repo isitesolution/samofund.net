@@ -1,0 +1,30 @@
+SamoFund dot Net
+================
+
+SamoFund-dot-Net is a Lending web base application converting native
+.XLS storage to a Web base Application site storage using SQL.
+
+
+TeamMembers and StakeHolders:
+- Ian Samonte
+- Limuel Samonte
+- Edwin Villamor
+
+Developer:
+Andre Joseph Cubeta - ajcubeta@gmail.com
+
+
+Things to set-up for productions:
+
+`QUEUE=* rake RAILS_ENV=production resque:work`
+
+`PIDFILE=./resque.pid BACKGROUND=yes QUEUE="*" rake resque:work`
+
+`resque-pool --daemon --environment production`
+
+# Resque Process
+1. To check any processes with the word 'resque', type `ps axu | grep resque`
+2. Or this: `ps -e -o pid,command | grep [r]esque`
+
+# Ruby style
+Please see https://github.com/bbatsov/ruby-style-guide for Ruby Style Guide.
