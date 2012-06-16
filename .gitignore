@@ -13,3 +13,29 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# OS generated files
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+*.swo
+*.swp
+*.vi
+.idea
+.redcar
+.project
+.tmproj
+.esproj
+nbproject
+*.sass-cache
+
+.yardoc
+.yardopts
+
+coverage
+
+tags
+
+private/*

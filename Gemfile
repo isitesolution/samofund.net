@@ -49,9 +49,6 @@ group :development do
   gem 'hirb' # hirb-unicode
   gem 'awesome_print', :require => 'ap'
   gem 'quiet_assets'
-
-  gem 'brakeman' # For general security vulnerability. Run using `brakeman -o sec.html`
-  gem 'sextant' # Point URL to /rails/routes, but in development only
 end
 
 group :test do
@@ -62,15 +59,3 @@ group :test do
   gem 'simplecov', :require => false      # Do not require or else __Uninitialized constant SimpleCov__ issues
   gem 'simplecov-rcov', :require => false # Play nice with Jenkins
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
