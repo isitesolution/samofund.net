@@ -44,6 +44,7 @@ gem 'panmind-rtf', '0.4.1'
 gem 'prawn'
 
 group :development do
+  gem "nifty-generators"
   # For IRB
   gem 'wirble'
   gem 'hirb' # hirb-unicode
