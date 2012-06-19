@@ -27,6 +27,7 @@ gem 'mimemagic'
 gem 'thin'
 gem 'RedCloth'
 gem 'rdiscount'
+gem 'aws-sdk'
 
 # Authentication
 gem 'devise', '1.5.3'
