@@ -3,7 +3,9 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "/js/libs/modernizr.js" %>
+    <%= javascript_include_tag "/js/libs/selectivizr.js" %>
+    <%= javascript_include_tag "https://use.typekit.com/qyd4lft.js" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>

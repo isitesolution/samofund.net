@@ -1,0 +1,92 @@
+@mixin rounded-corner($radius: 3px) {
+  -webkit-border-radius: $radius; -moz-border-radius: $radius; border-radius: $radius;
+}
+
+@mixin rounded-top-corner($radius: 3px) {
+  -webkit-border-top-left-radius: $radius; -moz-border-radius-topleft: $radius; border-top-left-radius: $radius;
+  -webkit-border-top-right-radius: $radius; -moz-border-radius-topright: $radius; border-top-right-radius: $radius;
+}
+
+@mixin rounded-bottom-corner($radius: 3px) {
+  -webkit-border-bottom-left-radius: $radius; -moz-border-radius-bottomleft: $radius; border-bottom-left-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius; -moz-border-radius-bottomright: $radius; border-bottom-right-radius: $radius;
+}
+
+@mixin rounded-left-corner($radius: 3px) {
+  -webkit-border-top-left-radius: $radius; -moz-border-radius-topleft: $radius;
+  -webkit-border-bottom-left-radius: $radius; -moz-border-radius-bottomleft: $radius;
+  border-top-left-radius: $radius; border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-right-corner($radius: 3px) {
+  -webkit-border-top-right-radius: $radius; -moz-border-radius-topright: $radius;
+  -webkit-border-bottom-right-radius: $radius; -moz-border-radius-bottomright: $radius;
+  border-top-right-radius: $radius; border-bottom-right-radius: $radius;
+}
+
+// horizontal, vertical, blur, color
+// 5px 5px 5px #ccc;
+// inset 0 0 10px #000000;
+@mixin box-shadow($val) {
+  -webkit-box-shadow: $val; -moz-box-shadow: $val; box-shadow: $val;
+}
+
+// from,to,border,border_h,text,text_s,inset,radius
+@mixin button($from_color, $to_color, $border_color, $border_hover_color, $text_color, $text_shadow_color, $inset_color, $radius:2px) {
+  color: $text_color;
+  text-shadow: 0 1px 0 $text_shadow_color;
+  text-decoration: none;
+  font-weight: bold;
+  @include rounded-corner($radius);
+  @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+
+  -webkit-box-shadow: $inset_color 0px 1px 0px inset, #d7d6d4 0px 1px 0px, rgba(255, 255, 255, 0.1) -1px 0px 1px inset;
+  box-shadow: 0 1px 0 $inset_color inset, 0 1px 0 #d7d6d4, -1px 0 1px rgba(255, 255, 255, 0.1) inset;
+
+  display: inline-block;
+  cursor: pointer;
+  padding: 0 5px;
+  border: 1px solid $border_color;
+
+  background: $from_color;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from_color), to($to_color));
+  background-image: -moz-linear-gradient(top, $from_color, $to_color);
+  background-image: -o-linear-gradient(top, $from_color, $to_color);
+
+  &:hover {
+    border-color: $border_hover_color;
+  }
+
+  &:active {
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($to_color), to($from_color));
+    background-image: -moz-linear-gradient(top, $to_color, $from_color);
+    background-image: -o-linear-gradient(top, $to_color, $from_color);
+
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 2px inset, #d7d6d4 0px 1px 0px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset, 0 1px 0 #d7d6d4;
+  }
+}
+
+/* Fonts */
+@mixin lucida($size: 100%, $weight: normal) {
+  font: $weight $size "Lucida Grande", "Lucida Grande Unicode", Verdana, sans-serif;
+  line-height: 1.5em;
+}
+
+@mixin helvetica($size: 100%, $weight: normal) {
+  font: $weight $size "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5em;
+}
+
+@mixin verdana($size: 100%, $weight: normal) {
+  font: $weight $size Verdana, Helvetica, Arial, sans-serif;
+  line-height: 1.5em;
+}
+
+@mixin skolar($size: 100%, $weight: normal) {
+  font: $weight $size "skolar-1", "skolar-2", serif;
+}
+
+@mixin adrianne($size: 100%, $weight: normal) {
+  font: $weight $size "adrianne-1", "adrianne-2", serif;
+}
