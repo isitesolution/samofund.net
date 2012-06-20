@@ -70,6 +70,7 @@ Devise.setup do |config|
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = "ef66036247218c308f983c43882fd7d1449335827c5e3067ba6aa122af6e4ff3061c397359f24fb5de6f61d8ca3ba984411bb31f656f94a24ceb249ae550f90f"
+  config.pepper = "07004568ad49c6a34ff02a1bdc4c8f50dfb8c803"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -153,7 +154,7 @@ Devise.setup do |config|
   # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
   # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
   # REST_AUTH_SITE_KEY to pepper)
-  # config.encryptor = :sha512
+  config.encryptor = :restful_authentication_sha1 # :sha512
 
   # ==> Configuration for :token_authenticatable
   # Defines name of the authentication token params key
@@ -171,7 +172,7 @@ Devise.setup do |config|
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
-  # config.default_scope = :user
+  config.default_scope = :user
 
   # Configure sign_out behavior.
   # Sign_out action can be scoped (i.e. /users/sign_out affects only :user scope).
