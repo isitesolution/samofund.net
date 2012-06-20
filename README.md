@@ -1,4 +1,5 @@
-samofund.net
+SamoFund.Net
 ============
 
-SamoFunddotNet is a Lending web base application converting native .XLS storage to then Web base Application site storage using SQL.
+SamoFund ::dot:: Net is a Lending Application System that aims to convert a native
+.XLS Spreadsheet local storage to a Database Driven SQL Web base Application.
