@@ -16,3 +16,64 @@
 //= require yui/yahoo-dom-event.js
 //= require yui/calendar.js
 //= require_tree .
+
+
+(function($) {
+  var Samofund = {};
+
+  Samofund.secondaryNav = {
+    display: function(settingLink) {
+      var nav = settingLink.parent();
+      nav.find('ul.sub').toggle();
+      settingLink.toggleClass('pop');
+    },
+    hide: function() {
+      var settingLink = $('nav.sec a');
+      var nav = settingLink.parent();
+      nav.find('ul.sub').hide();
+      settingLink.removeClass('pop');
+    }
+  };
+
+  /* Pressing ESC or click on html region */
+  function hidePopover() {
+    Samofund.secondaryNav.hide();
+    $('ul.filter .popover').hide();
+  }
+
+  $('body').keydown(function(evt) {
+    if (event.keyCode == 27) {
+      hidePopover()
+      evt.preventDefault();
+    }
+  });
+
+  $('html').click(function(evt) {
+    hidePopover()
+  });
+
+  /* Flash message */
+  $('.flash').delay(800).slideDown("fast");
+  $('.flash').live("click", function() {
+    $(this).fadeOut("fast");
+  });
+
+  /* Sub-menu */
+  $('header#masthead nav li').hover(
+    function() { $(this).find('ul.sub').show(); },
+    function() { $(this).find('ul.sub').hide(); }
+  );
+
+  /* Secondary nav - logout, settings, etc */
+  $('nav.sec > a').click(function(evt) {
+    Samofund.secondaryNav.display($(this));
+    evt.preventDefault();
+    evt.stopPropagation(); // prevent html click from getting it
+  });
+
+  /* Filter bar popover */
+  $('ul.filter li.pop').live("click", function(evt) {
+    $(this).find('.popover').show();
+  });
+
+})(jQuery);
