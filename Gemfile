@@ -55,7 +55,7 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'cucumber-rails'
+  # gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'simplecov', :require => false      # Do not require or else __Uninitialized constant SimpleCov__ issues
