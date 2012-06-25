@@ -20,8 +20,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string      :mobile_number
       t.string      :pin_number
       t.string      :gender,              :default => "Undisclosed"
-      t.string      :state,               :null => :no, :default => 'passive'
-      t.string      :type
+      t.string      :state,               :null => :no, :default => 'Passive'
+      t.string      :type,                :null => :no, :default => 'Client'
       t.datetime    :dob
 
       # Avatar
