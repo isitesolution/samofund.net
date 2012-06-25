@@ -9,13 +9,30 @@
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
-  <body>
-    <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
+  <body id="samofund_home">
+    <header class='layout mod' id='masthead'>
+      <a href="/"><img alt="Logo" src="/assets/rails.png" /></a>
+      <nav class='primary'>
+        <ul>
+          <li><a href="/" class="current">Home</a></li>
+          <li><a href="#">Clients</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class='layout mod' id='main'>
+      <%= render "shared/flash", :flash => flash %>
       <%= yield %>
-    </div>
+    </section>
+    <footer class='layout mod'>
+      <p>&copy; 2012 SamoFund</p>
+      <nav>
+        <ul>
+          <li><a href="https://www.facebook.com/samotech">Join us on Facebook</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

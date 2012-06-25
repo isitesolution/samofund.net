@@ -1,0 +1,19 @@
+<% if target.is_a?(Array) %>
+  <div id='error_messages'>
+    <h2>Please fix the following <%= "#{pluralize(target.count, "error")}"%>.</h2>
+    <ul>
+      <% target.each do |error| %>
+        <li><%= "#{error}"%></li>
+      <% end %>
+    </ul>
+  </div>
+<% elsif target.errors.is_a?(ActiveModel::Errors) && target.errors.any? %>
+  <div id='error_messages'>
+    <h2>Please fix the following <%= "#{pluralize(target.errors.count, "error")}" %>.</h2>
+    <ul>
+      <% target.errors.full_messages.each do |error| %>
+        <li><%= "#{error}"%></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

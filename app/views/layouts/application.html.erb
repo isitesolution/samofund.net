@@ -7,15 +7,30 @@
     <%= javascript_include_tag "/js/libs/selectivizr.js" %>
     <%= javascript_include_tag "https://use.typekit.com/qyd4lft.js" %>
     <%= csrf_meta_tag %>
+    <!-- [if lt IE 9] -->
+      <%= javascript_include_tag "/js/libs/selectivizr.js" %>
     <%= yield(:head) %>
   </head>
-  <body>
-    <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <body id="samofund_home">
+    <header class='layout mod' id='masthead'>
+      <a href="/"><img alt="Logo" src="/assets/rails.png" /></a>
+      <% if current_user %>
+        <%= render "shared/nav/#{current_user.to_nav}_sec" %>
+        <%= render "shared/nav/#{current_user.to_nav}" %>
       <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
+    </header>
+    <section class='layout mod' id='main'>
+      <%= render "shared/flash", :flash => flash %>
       <%= yield %>
-    </div>
+    </section>
+    <footer class='layout mod'>
+      <p>&copy; 2012 SamoFund</p>
+      <nav>
+        <ul>
+          <li><a href="https://www.facebook.com/samotech">Join us on Facebook</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

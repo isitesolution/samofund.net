@@ -1,0 +1,16 @@
+<% if flash.any? %>
+  <% if flash.notice =~ /Signed in successfully|Signed out successfully/ %>
+  <% else %>
+    <% if flash.notice %>
+      <div class='flash layout mod' title ='Click to dismiss'>
+        <div class='msg alert'><%= flash.notice %></div>
+      </div>
+    <% elsif flash.alert %>
+      <div class='flash layout mod' title ='Click to dismiss'>
+        <div class='msg alert'><%= flash.alert %></div>
+      </div>
+    <% else %>
+      <%= flash.alert %>
+    <% end %>
+  <% end %>
+<% end %>

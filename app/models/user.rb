@@ -10,9 +10,14 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   # Predicate to know what kind of user this is
-  %w(Client Employee Admin).each do |class_name|
-    define_method "#{class_name.downcase}?" do
-      self.class.to_s == class_name
+  %w(Client Employee Admin).each do |type|
+    define_method "#{type.downcase}?" do
+      self.class.to_s == type
     end
+  end
+
+  # For primary navigation at application.html.haml
+  def to_nav
+    type.downcase
   end
 end
