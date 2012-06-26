@@ -1,17 +1,36 @@
-<h2>Sign in</h2>
+<style type="text/css">
+  table tr td {
+    padding: 2px;
+    margin: 0px;
+    vertical-align: middle;
+   }
+ </style>
+<section id='login'>
+  <% url = Rails.env.development? ? session_path(resource_name) : session_path(resource_name, :secure => true) %>
+  <%= form_for(resource, :as => resource_name, :url => url, :html => { :class => "entry" }) do |f| %>
+    <h1>Log in to SamoFund</h1>
+    <fieldset>
+      <div><%= f.label :email %>
+      <%= f.text_field :email, :autofocus => true, :size => 60%></div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+      <div><%= f.label :password %>
+      <%= f.password_field :password, :size => 60%></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+      <% if devise_mapping.rememberable? -%>
+        <div>
+          <table>
+            <tr>
+              <td><%= f.check_box :remember_me %></td>
+              <td><%= f.label :remember_me, :class => 'remember_me' %></td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </fieldset>
+    <div class='action'>
+      <%= f.submit "Log in", :class => "btn" %>
+      or
+      <%= render :partial => "devise/shared/links" %>
+    </div>
+  <% end %>
+</section>
