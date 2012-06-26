@@ -15,7 +15,7 @@
     <header class='layout mod' id='masthead'>
       <a href="/"><img alt="Logo" src="/assets/logo.png" /></a>
       <% if current_user %>
-        <%= render "shared/nav/#{current_user.to_nav}_sec" %>
+        <%#= render "shared/nav/#{current_user.to_nav}_sec" %>
         <%= render "shared/nav/#{current_user.to_nav}" %>
       <% end %>
     </header>
